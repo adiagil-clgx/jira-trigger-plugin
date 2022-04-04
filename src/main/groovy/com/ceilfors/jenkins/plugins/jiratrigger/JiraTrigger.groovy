@@ -46,7 +46,7 @@ abstract class JiraTrigger<T> extends Trigger<Job> {
                             "match with the jqlFilter [$jqlFilter]")
                     return false
                 }
-            } catch(Exception e) {
+            } catch {
                 return false
             }
         }
