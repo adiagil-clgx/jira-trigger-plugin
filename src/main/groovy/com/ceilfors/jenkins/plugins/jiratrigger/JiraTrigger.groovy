@@ -40,13 +40,9 @@ abstract class JiraTrigger<T> extends Trigger<Job> {
             return false
         }
         if (jqlFilter) {
-            try {
-                if (!jiraTriggerDescriptor.jiraClient.validateIssueKey(issue.key, jqlFilter)) {
-                    log.fine("[${job.fullName}] - Not scheduling build: The issue ${issue.key} doesn't " +
-                            "match with the jqlFilter [$jqlFilter]")
-                    return false
-                }
-            } catch {
+            if (!jiraTriggerDescriptor.jiraClient.validateIssueKey(issue.key, jqlFilter)) {
+                log.fine("[${job.fullName}] - Not scheduling build: The issue ${issue.key} doesn't " +
+                        "match with the jqlFilter [$jqlFilter]")
                 return false
             }
         }
