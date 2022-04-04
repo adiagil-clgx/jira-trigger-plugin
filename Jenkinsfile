@@ -4,5 +4,5 @@
 pars = {
     string(name: 'platform', defaultValue: 'linux')
 }
-buildPluginWithGradle(pars)
+buildPluginWithGradle()
 
